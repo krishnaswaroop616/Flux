@@ -17,7 +17,7 @@ const Sidebar = () => {
     }
     const getThreads = async () => {
         try {
-            const threads = await axios.get("http://localhost:8080/api/thread");
+            const threads = await axios.get("https://flux-wbt4.onrender.com/api/thread");
             const filteredData = threads.data.map(thread => ({ threadId: thread.threadId, title: thread.title }));
             setAllThreads(filteredData);
         } catch (err) {
@@ -27,7 +27,7 @@ const Sidebar = () => {
 
     const fetchThread = async (threadId) => {
         try {
-            const thread = await axios.get(`http://localhost:8080/api/thread/${threadId}`);
+            const thread = await axios.get(`https://flux-wbt4.onrender.com/api/thread/${threadId}`);
             setCurrThreadId(threadId);
             setPreviousChats(thread.data);
             setNewChat(false);
@@ -40,7 +40,7 @@ const Sidebar = () => {
 
     const deleteThread = async (threadId) => {
         try {
-            const res = await axios.delete(`http://localhost:8080/api/thread/${threadId}`);
+            const res = await axios.delete(`https://flux-wbt4.onrender.com/api/thread/${threadId}`);
             alert("Chat deleted");
         }
         catch (err) {
