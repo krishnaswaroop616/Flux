@@ -78,6 +78,7 @@ const Sidebar = () => {
                 <div className={`${collapsed ? "d-none" : "d-block"} mt-5 p-1`} style={{ maxHeight: "61vh", overflowY: "auto" }}>
                     <h4 className="fw-semibold text-secondary mb-2  "><i class="fa-solid fa-comments"></i> Chats</h4>
                     <ul className="list-group list-group-flush p-2">
+                        {allThreads.length==0?  <div className="text-secondary  mx-auto mt-5 d-flex gap-2 align-items-center"><span className="spinner-border spinner-border-md "></span><span className="me-2 fs-5">Loading..</span></div>: ""}
                         {allThreads.map((thread, idx) => (
                             <li key={idx} onClick={() => fetchThread(thread.threadId)} className={`${thread.threadId === currThreadId ? "bg-primary bg-opacity-75" : "bg-transparent"} list-group-item  text-white border-0 px-3 py-3   d-flex rounded-3 flex-wrap justify-content-between threads align-items-center gap-3 `} style={{ cursor: "pointer" }}>
                                 <div className="flex-grow-1 " style={{maxWidth:"85%"}} >{thread.title.length<=35?thread.title:thread.title.slice(0,35)+"..."}</div><i class="fa-solid fa-trash me-2 " onClick={(e) => {
