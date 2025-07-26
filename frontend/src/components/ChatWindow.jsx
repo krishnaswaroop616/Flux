@@ -26,7 +26,7 @@ const ChatWindow = () => {
             message: prompt
         }
         try {
-            const res = await axios.post(`http://localhost:8080/api/chat`, body);
+            const res = await axios.post(`https://flux-wbt4.onrender.com/api/chat`, body);
             setPreviousChats(prev=>[...prev,{role:"user",content:prompt},{role:"assisstant",content:res.data.reply}]);
             setReply(res.data.reply);
             setPrompt("");
